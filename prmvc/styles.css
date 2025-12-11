@@ -1,0 +1,291 @@
+/* GLOBAL STYLES & RESET */
+:root {
+    --dark-gray: #333333;
+    --medium-gray: #444444;
+    --light-text: #f0f0f0;
+    --accent-color: #00bcd4; /* A light cyan/blue for highlights */
+    --padding-base: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-gray); /* Dark gray global background */
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--light-text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* HEADER & NAVIGATION */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px var(--padding-base);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.desktop-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.desktop-nav ul li {
+    margin-left: 30px;
+}
+
+.desktop-nav a {
+    padding: 5px 10px;
+    display: block;
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: var(--light-text);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* HERO SECTION - PARALLAX SETUP */
+
+.hero-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* Important to contain the image */
+}
+
+/* The actual parallax background image element */
+#parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150vh; /* Make it taller than the viewport for the effect */
+    background: url('placeholder-robot-bg.jpg') no-repeat center center/cover; /* Placeholder image */
+    background-color: #222; /* Fallback color */
+    z-index: -1; /* Place behind the content */
+    /* Use translate3d to promote the element to its own layer for performance */
+    transform: translate3d(0, 0, 0); 
+    will-change: transform; /* Hint for browser optimization */
+}
+
+.hero-content {
+    text-align: center;
+    padding: var(--padding-base);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    margin-bottom: 0.2em;
+}
+
+.hero-content h2 {
+    font-size: 1.8em;
+    color: var(--accent-color);
+    margin-bottom: 1em;
+}
+
+.primary-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--accent-color);
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.primary-btn:hover {
+    background-color: #0099ad;
+    transform: translateY(-2px);
+}
+
+/* MAIN CONTENT SECTIONS */
+main {
+    padding-top: 50px; /* Space for the fixed header */
+}
+
+.content-section {
+    padding: 80px var(--padding-base);
+    text-align: center;
+}
+
+.alternate-bg {
+    background-color: var(--medium-gray);
+}
+
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    border-bottom: 3px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex;
+    gap: var(--padding-base);
+    justify-content: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.product-card {
+    background-color: #2a2a2a;
+    padding: var(--padding-base);
+    border-radius: 8px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-image-placeholder {
+    height: 150px;
+    background-color: #555;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.product-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+/* News Section */
+.news-list {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.news-item {
+    background-color: var(--medium-gray);
+    padding: var(--padding-base);
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border-left: 5px solid var(--accent-color);
+}
+
+.news-item h3 {
+    margin-bottom: 5px;
+}
+
+.news-item .date {
+    display: block;
+    font-size: 0.8em;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+
+/* FOOTER */
+footer {
+    background-color: #1a1a1a;
+    padding: var(--padding-base) 0;
+    text-align: center;
+    border-top: 1px solid #444;
+}
+
+.footer-links a {
+    margin: 0 15px;
+    font-size: 0.9em;
+}
+
+/* RESPONSIVENESS - Mobile Adjustments */
+@media (max-width: 768px) {
+    /* Header/Navigation */
+    .desktop-nav {
+        display: none; /* Hide desktop nav on mobile */
+    }
+
+    .menu-toggle {
+        display: block; /* Show menu icon */
+    }
+
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2em;
+    }
+
+    /* Content Sections */
+    .content-section {
+        padding: 50px var(--padding-base);
+    }
+    
+    .section-title {
+        font-size: 2em;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+    }
+
+    .product-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* New style for actual product images */
+.product-image {
+    width: 100%; /* Makes the image fill the card width */
+    height: auto; /* Maintains aspect ratio */
+    max-height: 200px; /* Optional: Sets a maximum height */
+    object-fit: cover; /* Ensures image covers the space without distortion */
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* You can now safely remove or ignore the .card-image-placeholder styles */
+.card-image-placeholder {
+    /* ... (You can remove the styles for this, or leave them if you keep the divs) */
+}
