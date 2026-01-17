@@ -1,0 +1,133 @@
+:root {
+    --primary-pink: #ff85a1;
+    --neon-blue: #00f2ff;
+    --interior-gold: #d4af37;
+    --dark-bg: #1a1a2e;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--dark-bg);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Efecto Glitch para el Título */
+.glitch {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 2px 2px var(--primary-pink);
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--neon-blue);
+    letter-spacing: 2px;
+}
+
+/* El Robot de Sofía */
+.robot-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.robot {
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.head {
+    width: 60px; height: 50px;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative;
+    border: 3px solid var(--interior-gold);
+}
+
+/* Contenedor para alinear ambos ojos */
+.eyes-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; /* Ajusta qué tan separados están los ojos */
+}
+
+.eye {
+    width: 12px;
+    height: 12px;
+    background-color: var(--neon-blue);
+    border-radius: 50%; /* Los hace circulares */
+    box-shadow: 0 0 15px var(--neon-blue), 0 0 5px white;
+    position: relative;
+    animation: blink 4s infinite;
+}
+
+/* Efecto de parpadeo estilo robot */
+@keyframes blink {
+    0%, 90%, 100% { 
+        transform: scaleY(1); 
+    }
+    95% { 
+        transform: scaleY(0.1); 
+    }
+}
+
+/* Opcional: Un pequeño brillo interno para dar profundidad */
+.eye::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+.body {
+    width: 80px; height: 60px;
+    background: #aaa;
+    margin-top: 5px;
+    border-radius: 5px;
+    line-height: 60px;
+    font-size: 20px;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Botón Estilo Arcade */
+#btnSurprise {
+    background: var(--primary-pink);
+    border: none;
+    padding: 15px 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #d64d6d;
+    transition: 0.2s;
+    display: block;
+    margin: 20px auto;
+}
+
+#btnSurprise:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #d64d6d;
+}
+
+canvas {
+    position: absolute;
+    top: 0; left: 0;
+    pointer-events: none;
+}
